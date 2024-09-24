@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>39_Virachai</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
-        padding: 25px;
+        padding: 0px;
+        margin: 0px;
       }
       .my-button {
         display: inline-block;
@@ -21,6 +29,11 @@
         overflow: hidden;
         z-index: 1;
         border: 1px solid blue;
+        font-family: "Roboto", "Times New Roman", Times, serif;
+        width: 200px;
+      }
+      .my-button__padding {
+        text-align: center;
       }
 
       .my-button::after {
@@ -31,6 +44,7 @@
         width: 100%;
         height: 100%;
         background-color: #0cf;
+        background-color: #0c0;
         border-radius: 10rem;
         z-index: -2;
       }
@@ -55,17 +69,188 @@
       .my-button:hover::before {
         width: 100%;
       }
+
+      .mom {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      #header > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border: 1px solid black;
+        padding: 16px;
+        margin-bottom: 30px;
+      }
+      #header .logo {
+        width: 100px;
+      }
+      #header .menu {
+        width: calc(100% - 100px);
+        justify-content: flex-end;
+        display: flex;
+        gap: 16px;
+      }
+      #header .logo div,
+      #header .menu div {
+        border: 1px solid black;
+        padding: 10px;
+        flex-basis: 100px;
+        background-color: #00ffff;
+      }
+
+      #main > section {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        padding: 20px;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      #main > section > div {
+        border: 1px solid black;
+        min-width: 210px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc(100% / 3 - 20px);
+        height: 150px;
+        background-color: #00ff00;
+      }
+      div.mid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        padding: 20px;
+        gap: 20px;
+        flex-direction: column;
+      }
+      div.mid > div {
+        border: 1px solid black;
+        padding: 10px;
+        background-color: #00ffff;
+        height: 40px;
+        align-self: center;
+      }
+      div.mid > div.title {
+        width: 30%;
+      }
+      div.mid > div.content {
+        width: calc(100% - 40px);
+      }
+
+      div.bottom {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        padding: 20px;
+        gap: 20px;
+        justify-content: space-between;
+      }
+      div.bottom > .bottom-a {
+        align-self: flex-start;
+        width: 30vw;
+        min-width: 200px;
+        max-width: 100%;
+      }
+      div.bottom > .bottom-b {
+        align-self: flex-end;
+        width: 30vw;
+        min-width: 200px;
+        max-width: 100%;
+      }
+      div.bottom > .bottom-a > div,
+      div.bottom > .bottom-b > div {
+        background-color: #00ffff;
+        margin: 20px 0;
+        min-height: 40px;
+      }
+      div.bottom > .bottom-a > div.title {
+        width: calc(30vw - 40px);
+      }
+
+      #header .hamburger {
+        display: none;
+      }
+      /* Mobile styles */
+      @media (max-width: 600px) {
+        #header > div {
+          align-content: center;
+        }
+        #header .menu {
+          display: none;
+        }
+        #header .hamburger {
+          display: unset;
+          transform: rotate(90deg);
+          font-size: 50px;
+        }
+        #main > section > div {
+          min-width: unset;
+          flex-basis: 100%;
+          height: 150px;
+        }
+        div.bottom > .bottom-a > div.title,
+        div.mid > div.title {
+          width: 50%;
+        }
+        div.mid > div.content {
+          width: calc(100%);
+        }
+        div.bottom > .bottom-b,
+        div.bottom > .bottom-a {
+          align-self: flex-start;
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="my-button">
-      <div>Click me!</div>
-    </div>
+    <header id="header">
+      <div>
+        <div class="logo"><div>&nbsp;</div></div>
+        <div class="hamburger">|||</div>
+        <div class="menu">
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+        </div>
+      </div>
+    </header>
 
-    <!-- <div style="padding: 50px">Padding 1</div>
-    <div style="padding: 50px">Padding 2</div>
-
-    <div style="margin: 50px">Margin 1</div>
-    <div style="margin: 50px">Margin 2</div> -->
+    <main id="main">
+      <section>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+      </section>
+      <div class="mid">
+        <div class="title"></div>
+        <div class="content"></div>
+      </div>
+      <section>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+      </section>
+      <div class="bottom">
+        <div class="bottom-a">
+          <div class="title">&nbsp;</div>
+          <div class="content">
+            &nbsp;<br /><br /><br /><br /><br /><br /><br />
+          </div>
+        </div>
+        <div class="bottom-b">
+          <div class="content">&nbsp;<br /><br /><br /><br /><br /></div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
